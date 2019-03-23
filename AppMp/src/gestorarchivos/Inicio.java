@@ -33,6 +33,7 @@ public class Inicio extends javax.swing.JFrame {
         nueva_categoriaI = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.FlowLayout());
 
         buscarI.setText("BUSCAR");
         buscarI.addActionListener(new java.awt.event.ActionListener() {
@@ -40,6 +41,7 @@ public class Inicio extends javax.swing.JFrame {
                 buscarIActionPerformed(evt);
             }
         });
+        getContentPane().add(buscarI);
 
         subirI.setText("SUBIR");
         subirI.addActionListener(new java.awt.event.ActionListener() {
@@ -47,6 +49,7 @@ public class Inicio extends javax.swing.JFrame {
                 subirIActionPerformed(evt);
             }
         });
+        getContentPane().add(subirI);
 
         cambiar_colorI.setText("CAMBIAR COLOR");
         cambiar_colorI.addActionListener(new java.awt.event.ActionListener() {
@@ -54,38 +57,10 @@ public class Inicio extends javax.swing.JFrame {
                 cambiar_colorIActionPerformed(evt);
             }
         });
+        getContentPane().add(cambiar_colorI);
 
         nueva_categoriaI.setText("NUEVA CATEGORIA");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(buscarI)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(subirI)
-                .addGap(48, 48, 48)
-                .addComponent(cambiar_colorI)
-                .addGap(32, 32, 32))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(nueva_categoriaI)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buscarI)
-                    .addComponent(subirI)
-                    .addComponent(cambiar_colorI))
-                .addGap(18, 18, 18)
-                .addComponent(nueva_categoriaI, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(nueva_categoriaI);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
