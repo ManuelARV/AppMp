@@ -6,7 +6,13 @@
         <group/>
 =======
         <group>
+            <file>file:/D:/Universidad/MP/Practica/AppMp/AppMp/src/gestorarchivos/Buscar.java</file>
+            <file>file:/D:/Universidad/MP/Practica/AppMp/AppMp/src/gestorarchivos/Error.java</file>
+            <file>file:/D:/Universidad/MP/Practica/AppMp/AppMp/src/gestorarchivos/Acciones.java</file>
+            <file>file:/D:/Universidad/MP/Practica/AppMp/AppMp/src/gestorarchivos/CambiarColor.java</file>
             <file>file:/D:/Universidad/MP/Practica/AppMp/AppMp/src/gestorarchivos/NuevaCategoria.java</file>
+            <file>file:/D:/Universidad/MP/Practica/AppMp/AppMp/src/gestorarchivos/Eliminar.java</file>
+            <file>file:/D:/Universidad/MP/Practica/AppMp/AppMp/src/gestorarchivos/EditarCategoria.java</file>
         </group>
 >>>>>>> 15be6a467a1553afe64c8aee87145c541d552856
     </open-files>

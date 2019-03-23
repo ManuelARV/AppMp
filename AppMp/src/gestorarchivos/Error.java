@@ -27,8 +27,17 @@ public class Error extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.FlowLayout());
+
+        jTextField1.setText("¡Error! No se ha podido realizar la operación");
+        getContentPane().add(jTextField1);
+
+        jButton1.setText("Continuar");
+        getContentPane().add(jButton1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -69,5 +78,7 @@ public class Error extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

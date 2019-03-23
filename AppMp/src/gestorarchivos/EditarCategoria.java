@@ -27,8 +27,32 @@ public class EditarCategoria extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTextField2 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+
+        jTextField2.setText("Editar categoria de (objeto pasado por referencia)");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.FlowLayout());
+
+        jTextField1.setText(" Editar Categorias:       ");
+        getContentPane().add(jTextField1);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(jComboBox1);
+
+        jButton1.setText("Aceptar");
+        getContentPane().add(jButton1);
+
+        jTextField3.setText(" Cambiando categoría de:");
+        getContentPane().add(jTextField3);
+
+        jTextField4.setText("(objeto en cuestión)");
+        getContentPane().add(jTextField4);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -69,5 +93,11 @@ public class EditarCategoria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
