@@ -7,7 +7,7 @@ package gestorarchivos;
 
 /**
  *
- * @author urjc
+ * @author Marina
  */
 public class Acciones extends javax.swing.JFrame {
 

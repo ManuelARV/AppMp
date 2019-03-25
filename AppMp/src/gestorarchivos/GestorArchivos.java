@@ -7,7 +7,7 @@ package gestorarchivos;
 
 /**
  *
- * @author urjc
+ * @author Marina
  */
 public class GestorArchivos {
 
@@ -15,7 +15,11 @@ public class GestorArchivos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Inicio ini = new Inicio();
+        ini.setTitle("Inicio");
+        ini.setVisible(true);
+        
+        
     }
     
 }

@@ -7,7 +7,7 @@ package gestorarchivos;
 
 /**
  *
- * @author urjc
+ * @author Marina
  */
 public class Error extends javax.swing.JFrame {
 

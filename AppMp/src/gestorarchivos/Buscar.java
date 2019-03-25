@@ -7,7 +7,7 @@ package gestorarchivos;
 
 /**
  *
- * @author urjc
+ * @author Marina
  */
 public class Buscar extends javax.swing.JFrame {
 
