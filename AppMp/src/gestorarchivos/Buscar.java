@@ -23,16 +23,12 @@ public class Buscar extends javax.swing.JFrame {
         }     
         return obj;
     }
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tipoB = new javax.swing.JRadioButton();
-        categoriaB = new javax.swing.JRadioButton();
-        nombreB = new javax.swing.JRadioButton();
-        todoB = new javax.swing.JRadioButton();
+        grupoBotonesB = new javax.swing.ButtonGroup();
         lista_tiposB = new javax.swing.JComboBox<>();
         lista_categoriasB = new javax.swing.JComboBox<>();
         input_nombreB = new javax.swing.JTextField();
@@ -42,31 +38,18 @@ public class Buscar extends javax.swing.JFrame {
         aceptarB = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         opcionesB = new javax.swing.JButton();
+        tipoB = new javax.swing.JRadioButton();
+        categoriaB = new javax.swing.JRadioButton();
+        nombreB = new javax.swing.JRadioButton();
+        todoB = new javax.swing.JRadioButton();
+
+        grupoBotonesB.add(tipoB);
+        grupoBotonesB.add(categoriaB);
+        grupoBotonesB.add(nombreB);
+        grupoBotonesB.add(todoB);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
-
-        tipoB.setText("Tipo");
-        tipoB.setPreferredSize(new java.awt.Dimension(120, 35));
-
-        categoriaB.setText("Categoría");
-        categoriaB.setPreferredSize(new java.awt.Dimension(120, 35));
-        categoriaB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                categoriaBActionPerformed(evt);
-            }
-        });
-
-        nombreB.setText("Nombre");
-        nombreB.setPreferredSize(new java.awt.Dimension(120, 35));
-        nombreB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreBActionPerformed(evt);
-            }
-        });
-
-        todoB.setText("Todo");
-        todoB.setPreferredSize(new java.awt.Dimension(120, 35));
 
         lista_tiposB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo" }));
         lista_tiposB.setPreferredSize(new java.awt.Dimension(120, 35));
@@ -75,9 +58,11 @@ public class Buscar extends javax.swing.JFrame {
                 lista_tiposBActionPerformed(evt);
             }
         });
+        lista_tiposB.setVisible(false);
 
         lista_categoriasB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Categoria" }));
         lista_categoriasB.setPreferredSize(new java.awt.Dimension(120, 35));
+        lista_categoriasB.setVisible(false);
 
         input_nombreB.setPreferredSize(new java.awt.Dimension(120, 30));
         input_nombreB.addActionListener(new java.awt.event.ActionListener() {
@@ -85,14 +70,16 @@ public class Buscar extends javax.swing.JFrame {
                 input_nombreBActionPerformed(evt);
             }
         });
+        input_nombreB.setVisible(false);
 
-        buscarB.setText("❤");
+        buscarB.setText("Buscar");
         buscarB.setPreferredSize(new java.awt.Dimension(120, 45));
         buscarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarBActionPerformed(evt);
             }
         });
+        buscarB.setVisible(true);
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(534, 200));
 
@@ -150,36 +137,72 @@ public class Buscar extends javax.swing.JFrame {
             }
         });
 
+        grupoBotonesB.add(tipoB);
+        tipoB.setText("Tipo");
+        tipoB.setPreferredSize(new java.awt.Dimension(120, 35));
+        tipoB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipoBActionPerformed(evt);
+            }
+        });
+
+        grupoBotonesB.add(categoriaB);
+        categoriaB.setText("Categoría");
+        categoriaB.setPreferredSize(new java.awt.Dimension(120, 35));
+        categoriaB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoriaBActionPerformed(evt);
+            }
+        });
+
+        grupoBotonesB.add(nombreB);
+        nombreB.setText("Nombre");
+        nombreB.setPreferredSize(new java.awt.Dimension(120, 35));
+        nombreB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreBActionPerformed(evt);
+            }
+        });
+
+        grupoBotonesB.add(todoB);
+        todoB.setSelected(true);
+        todoB.setText("Todo");
+        todoB.setPreferredSize(new java.awt.Dimension(120, 35));
+        todoB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                todoBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(tipoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(categoriaB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(nombreB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(todoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lista_tiposB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(opcionesB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lista_tiposB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tipoB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lista_categoriasB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(input_nombreB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(buscarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(opcionesB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(categoriaB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(nombreB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(input_nombreB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buscarB, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                            .addComponent(todoB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(aceptarB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -195,9 +218,10 @@ public class Buscar extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lista_tiposB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lista_categoriasB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(input_nombreB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buscarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(input_nombreB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lista_categoriasB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -205,7 +229,7 @@ public class Buscar extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(opcionesB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(aceptarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -213,16 +237,8 @@ public class Buscar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void categoriaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_categoriaBActionPerformed
-
-    private void nombreBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombreBActionPerformed
-
     private void lista_tiposBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lista_tiposBActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_lista_tiposBActionPerformed
 
     private void aceptarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarBActionPerformed
@@ -243,10 +259,48 @@ public class Buscar extends javax.swing.JFrame {
         Opciones.getObj().setLocationRelativeTo(null);
     }//GEN-LAST:event_opcionesBActionPerformed
 
+    private void tipoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoBActionPerformed
+        if (tipoB.isEnabled()) {
+            lista_tiposB.setVisible(true);
+            lista_categoriasB.setVisible(false);
+            input_nombreB.setVisible(false);
+        }
+    }//GEN-LAST:event_tipoBActionPerformed
+
+    private void categoriaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaBActionPerformed
+        if (categoriaB.isEnabled()) {
+            lista_categoriasB.setVisible(true);
+            lista_tiposB.setVisible(false);
+            input_nombreB.setVisible(false);
+        }
+    }//GEN-LAST:event_categoriaBActionPerformed
+
+    private void nombreBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreBActionPerformed
+        if (nombreB.isEnabled()) {
+            input_nombreB.setVisible(true);
+            lista_tiposB.setVisible(false);
+            lista_categoriasB.setVisible(false);
+        }
+        else
+        {
+            input_nombreB.setVisible(false);
+        }
+    }//GEN-LAST:event_nombreBActionPerformed
+
+    private void todoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoBActionPerformed
+        if (todoB.isEnabled()) {
+            input_nombreB.setVisible(true);
+            lista_tiposB.setVisible(false);
+            lista_categoriasB.setVisible(false);
+            input_nombreB.setVisible(false);
+        }
+    }//GEN-LAST:event_todoBActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aceptarB;
     private javax.swing.JButton buscarB;
     private javax.swing.JRadioButton categoriaB;
+    private javax.swing.ButtonGroup grupoBotonesB;
     private javax.swing.JTextField input_nombreB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
