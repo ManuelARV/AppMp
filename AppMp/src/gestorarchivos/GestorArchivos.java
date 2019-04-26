@@ -5,8 +5,6 @@
  */
 package gestorarchivos;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Marina

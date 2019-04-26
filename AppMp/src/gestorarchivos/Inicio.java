@@ -5,6 +5,7 @@
  */
 package gestorarchivos;
 
+import java.awt.Color;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.JFileChooser;
@@ -19,7 +20,7 @@ public class Inicio extends javax.swing.JFrame {
     ArrayList<Archivo> archivos = new ArrayList<>();
     
     public Inicio() {
-        initComponents();     
+        initComponents();  
     }
     
     @SuppressWarnings("unchecked")
@@ -315,6 +316,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel2.setPreferredSize(new java.awt.Dimension(90, 20));
 
         seleccionColorCC.add(defaultCC);
+        defaultCC.setSelected(true);
         defaultCC.setText("Default");
         defaultCC.setPreferredSize(new java.awt.Dimension(80, 30));
         defaultCC.addActionListener(new java.awt.event.ActionListener() {
@@ -326,10 +328,20 @@ public class Inicio extends javax.swing.JFrame {
         seleccionColorCC.add(azulCC);
         azulCC.setText("Azul");
         azulCC.setPreferredSize(new java.awt.Dimension(80, 30));
+        azulCC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                azulCCActionPerformed(evt);
+            }
+        });
 
         seleccionColorCC.add(amarilloCC);
         amarilloCC.setText("Amarillo");
         amarilloCC.setPreferredSize(new java.awt.Dimension(80, 30));
+        amarilloCC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                amarilloCCActionPerformed(evt);
+            }
+        });
 
         seleccionColorCC.add(blancoCC);
         blancoCC.setText("Blanco");
@@ -379,7 +391,7 @@ public class Inicio extends javax.swing.JFrame {
                                 .addComponent(blancoCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(33, 33, 33)
                         .addComponent(mostrarCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(52, 58, Short.MAX_VALUE))
+                .addGap(58, 58, Short.MAX_VALUE))
         );
         CambiarColorPLayout.setVerticalGroup(
             CambiarColorPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -395,14 +407,12 @@ public class Inicio extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(CambiarColorPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(amarilloCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(blancoCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                        .addGroup(CambiarColorPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cancelarCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(aceptarCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(CambiarColorPLayout.createSequentialGroup()
-                        .addComponent(mostrarCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(blancoCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(mostrarCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(CambiarColorPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelarCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(aceptarCC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -416,8 +426,13 @@ public class Inicio extends javax.swing.JFrame {
         jLabel1.setText("Existentes:");
         jLabel1.setPreferredSize(new java.awt.Dimension(80, 25));
 
-        existentesNC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Categoría1", "Categoría2" }));
+        existentesNC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
         existentesNC.setPreferredSize(new java.awt.Dimension(100, 40));
+        existentesNC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                existentesNCActionPerformed(evt);
+            }
+        });
 
         cancelarNC.setText("Cancelar");
         cancelarNC.setPreferredSize(new java.awt.Dimension(90, 30));
@@ -533,7 +548,7 @@ public class Inicio extends javax.swing.JFrame {
                 }
             });
 
-            categoriaS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "default" }));
+            categoriaS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
             categoriaS.setPreferredSize(new java.awt.Dimension(200, 28));
 
             cancelarS.setText("Cancelar");
@@ -1021,7 +1036,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(cambiar_colorI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(nueva_categoriaI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(inicio_mostrarI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(inicio_mostrarI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(cancelarI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(60, 60, 60))
@@ -1118,15 +1133,60 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarCCActionPerformed
 
     private void aceptarCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarCCActionPerformed
+        if (azulCC.isSelected()) {
+            BuscarP.getContentPane().setBackground(Color.blue);
+            CambiarColorP.getContentPane().setBackground(Color.blue);
+            NuevaCategoriaP.getContentPane().setBackground(Color.blue);
+            AgregarP.getContentPane().setBackground(Color.blue);
+            OpcionesP.getContentPane().setBackground(Color.blue);
+            VerP.getContentPane().setBackground(Color.blue);
+            this.getContentPane().setBackground(Color.blue);
+            EditarCategoriaP.getContentPane().setBackground(Color.blue);
+            EliminarP.getContentPane().setBackground(Color.blue);
+        }
+        else if (amarilloCC.isSelected()) {
+            BuscarP.getContentPane().setBackground(Color.yellow);
+            CambiarColorP.getContentPane().setBackground(Color.yellow);
+            NuevaCategoriaP.getContentPane().setBackground(Color.yellow);
+            AgregarP.getContentPane().setBackground(Color.yellow);
+            OpcionesP.getContentPane().setBackground(Color.yellow);
+            VerP.getContentPane().setBackground(Color.yellow);
+            this.getContentPane().setBackground(Color.yellow);
+            EditarCategoriaP.getContentPane().setBackground(Color.yellow);
+            EliminarP.getContentPane().setBackground(Color.yellow);
+        }
+        else if (blancoCC.isSelected()) {
+            BuscarP.getContentPane().setBackground(Color.white);
+            CambiarColorP.getContentPane().setBackground(Color.white);
+            NuevaCategoriaP.getContentPane().setBackground(Color.white);
+            AgregarP.getContentPane().setBackground(Color.white);
+            OpcionesP.getContentPane().setBackground(Color.white);
+            VerP.getContentPane().setBackground(Color.white);
+            this.getContentPane().setBackground(Color.white);
+            EditarCategoriaP.getContentPane().setBackground(Color.white);
+            EliminarP.getContentPane().setBackground(Color.white);
+        }
+        else if (defaultCC.isSelected()) {
+            BuscarP.getContentPane().setBackground(null);
+            CambiarColorP.getContentPane().setBackground(null);
+            NuevaCategoriaP.getContentPane().setBackground(null);
+            AgregarP.getContentPane().setBackground(null);
+            OpcionesP.getContentPane().setBackground(null);
+            VerP.getContentPane().setBackground(null);
+            this.getContentPane().setBackground(null);
+            EditarCategoriaP.getContentPane().setBackground(null);
+            EliminarP.getContentPane().setBackground(null);
+        }
+        
         CambiarColorP.dispose();
     }//GEN-LAST:event_aceptarCCActionPerformed
 
     private void defaultCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_defaultCCActionPerformed
-        // TODO add your handling code here:
+        mostrarCC.setBackground(null);
     }//GEN-LAST:event_defaultCCActionPerformed
 
     private void blancoCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blancoCCActionPerformed
-
+        mostrarCC.setBackground(Color.white);
     }//GEN-LAST:event_blancoCCActionPerformed
 
 //BUSCAR
@@ -1150,6 +1210,11 @@ public class Inicio extends javax.swing.JFrame {
         if ("".equals(nuevaNC.getText())) {
             JOptionPane.showMessageDialog(NuevaCategoriaP, "Error, no se ha podido realizar la operación.","ERROR", JOptionPane.ERROR_MESSAGE);
         }
+        else {
+            existentesNC.addItem(nuevaNC.getText());
+            categoriaS.addItem(nuevaNC.getText());
+        }
+        nuevaNC.setText(null);
         NuevaCategoriaP.dispose();
     }//GEN-LAST:event_confirmarNCActionPerformed
 
@@ -1244,7 +1309,20 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_direccionSActionPerformed
 
+    private void azulCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_azulCCActionPerformed
+        mostrarCC.setBackground(Color.blue);
+    }//GEN-LAST:event_azulCCActionPerformed
+
+    private void amarilloCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amarilloCCActionPerformed
+        mostrarCC.setBackground(Color.yellow);
+    }//GEN-LAST:event_amarilloCCActionPerformed
+
+    private void existentesNCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existentesNCActionPerformed
+        
+    }//GEN-LAST:event_existentesNCActionPerformed
     
+        
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog AgregarP;
     private javax.swing.JDialog BuscarP;
