@@ -5,6 +5,8 @@
  */
 package gestorarchivos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Marina
@@ -16,6 +18,7 @@ public class GestorArchivos {
         ini.setTitle("Inicio");
         ini.setVisible(true);
         ini.setLocationRelativeTo(null);
+               
     }
     
 }

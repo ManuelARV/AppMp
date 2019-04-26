@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Container class="javax.swing.JDialog" name="BuscarP">
       <Properties>
@@ -633,7 +633,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="seleccioneS" alignment="0" pref="189" max="32767" attributes="0"/>
+                              <Component id="direccionS" alignment="0" pref="189" max="32767" attributes="0"/>
                               <Component id="categoriaS" alignment="0" pref="189" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -675,7 +675,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="seleccioneS" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="direccionS" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="explorarS" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -720,10 +720,12 @@
         <Component class="javax.swing.JComboBox" name="tipoS">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="5">
                 <StringItem index="0" value="otro"/>
                 <StringItem index="1" value="img"/>
                 <StringItem index="2" value="doc"/>
+                <StringItem index="3" value="txt"/>
+                <StringItem index="4" value="mp4"/>
               </StringArray>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -747,9 +749,9 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreSActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="seleccioneS">
+        <Component class="javax.swing.JTextField" name="direccionS">
           <Properties>
-            <Property name="text" type="java.lang.String" value="C://"/>
+            <Property name="text" type="java.lang.String" value="C:\u005c" containsInvalidXMLChars="true"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Texto"/>
             </Property>
@@ -757,6 +759,9 @@
               <Dimension value="[200, 30]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="direccionSActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="explorarS">
           <Properties>
@@ -773,7 +778,7 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="1">
-                <StringItem index="0" value="Default"/>
+                <StringItem index="0" value="default"/>
               </StringArray>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
