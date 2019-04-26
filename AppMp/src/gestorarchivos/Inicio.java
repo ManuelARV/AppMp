@@ -6,6 +6,7 @@
 package gestorarchivos;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -64,6 +65,34 @@ public class Inicio extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        OpcionesP = new javax.swing.JDialog();
+        verO = new javax.swing.JButton();
+        editarO = new javax.swing.JButton();
+        descargarO = new javax.swing.JButton();
+        eliminarO = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        aceptarO = new javax.swing.JButton();
+        objetoO = new javax.swing.JLabel();
+        VerP = new javax.swing.JDialog();
+        nombreV = new javax.swing.JLabel();
+        tipoV = new javax.swing.JLabel();
+        categoriaV = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        aceptarV = new javax.swing.JButton();
+        panel_muestraV = new javax.swing.JPanel();
+        EditarCategoriaP = new javax.swing.JDialog();
+        jLabel12 = new javax.swing.JLabel();
+        objetoEC = new javax.swing.JLabel();
+        categoriasEC = new javax.swing.JComboBox<>();
+        aceptarEC = new javax.swing.JButton();
+        EliminarP = new javax.swing.JDialog();
+        aceptarV1 = new javax.swing.JButton();
+        cancelarV = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         buscarI = new javax.swing.JButton();
         agregarI = new javax.swing.JButton();
         cambiar_colorI = new javax.swing.JButton();
@@ -253,6 +282,8 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(aceptarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        BuscarP.getAccessibleContext().setAccessibleParent(this);
 
         CambiarColorP.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         CambiarColorP.setModal(true);
@@ -447,7 +478,10 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        NuevaCategoriaP.getAccessibleContext().setAccessibleParent(this);
+
         AgregarP.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        AgregarP.setModal(true);
         AgregarP.setResizable(false);
         AgregarP.setSize(new java.awt.Dimension(400, 300));
 
@@ -571,6 +605,327 @@ public class Inicio extends javax.swing.JFrame {
                         .addComponent(cancelarS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
+
+        AgregarP.getAccessibleContext().setAccessibleParent(this);
+
+        OpcionesP.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        OpcionesP.setModal(true);
+        OpcionesP.setPreferredSize(new java.awt.Dimension(250, 230));
+        OpcionesP.setResizable(false);
+        OpcionesP.setSize(new java.awt.Dimension(250, 230));
+
+        verO.setText("Ver");
+        verO.setPreferredSize(new java.awt.Dimension(100, 40));
+        verO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                verOActionPerformed(evt);
+            }
+        });
+
+        editarO.setText("Editar");
+        editarO.setPreferredSize(new java.awt.Dimension(100, 40));
+        editarO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarOActionPerformed(evt);
+            }
+        });
+
+        descargarO.setText("Descargar");
+        descargarO.setPreferredSize(new java.awt.Dimension(100, 40));
+        descargarO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descargarOActionPerformed(evt);
+            }
+        });
+
+        eliminarO.setText("Eliminar");
+        eliminarO.setPreferredSize(new java.awt.Dimension(100, 40));
+        eliminarO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarOActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Acciones para:");
+        jLabel8.setPreferredSize(new java.awt.Dimension(120, 30));
+
+        aceptarO.setText("Aceptar");
+        aceptarO.setPreferredSize(new java.awt.Dimension(90, 30));
+        aceptarO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarOActionPerformed(evt);
+            }
+        });
+
+        objetoO.setText("://:");
+        objetoO.setPreferredSize(new java.awt.Dimension(120, 30));
+
+        javax.swing.GroupLayout OpcionesPLayout = new javax.swing.GroupLayout(OpcionesP.getContentPane());
+        OpcionesP.getContentPane().setLayout(OpcionesPLayout);
+        OpcionesPLayout.setHorizontalGroup(
+            OpcionesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OpcionesPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(OpcionesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(OpcionesPLayout.createSequentialGroup()
+                        .addComponent(verO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editarO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(OpcionesPLayout.createSequentialGroup()
+                        .addComponent(descargarO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(eliminarO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(OpcionesPLayout.createSequentialGroup()
+                        .addGroup(OpcionesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(objetoO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addComponent(aceptarO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        OpcionesPLayout.setVerticalGroup(
+            OpcionesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(OpcionesPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(OpcionesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(verO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editarO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(OpcionesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(descargarO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(eliminarO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(OpcionesPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(OpcionesPLayout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(objetoO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 26, Short.MAX_VALUE))
+                    .addGroup(OpcionesPLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(aceptarO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        OpcionesP.getAccessibleContext().setAccessibleParent(BuscarP);
+
+        VerP.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        VerP.setModal(true);
+        VerP.setPreferredSize(new java.awt.Dimension(278, 385));
+        VerP.setSize(new java.awt.Dimension(278, 385));
+
+        nombreV.setText("://:");
+        nombreV.setPreferredSize(new java.awt.Dimension(120, 40));
+
+        tipoV.setText("://:");
+        tipoV.setPreferredSize(new java.awt.Dimension(120, 40));
+
+        categoriaV.setText("://:");
+        categoriaV.setPreferredSize(new java.awt.Dimension(120, 40));
+
+        jLabel9.setText("Nombre: ");
+        jLabel9.setPreferredSize(new java.awt.Dimension(120, 40));
+
+        jLabel10.setText("Tipo: ");
+        jLabel10.setPreferredSize(new java.awt.Dimension(120, 40));
+
+        jLabel11.setText("Categoría: ");
+        jLabel11.setPreferredSize(new java.awt.Dimension(120, 40));
+
+        aceptarV.setText("Aceptar");
+        aceptarV.setPreferredSize(new java.awt.Dimension(80, 30));
+        aceptarV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarVActionPerformed(evt);
+            }
+        });
+
+        panel_muestraV.setPreferredSize(new java.awt.Dimension(258, 153));
+
+        javax.swing.GroupLayout panel_muestraVLayout = new javax.swing.GroupLayout(panel_muestraV);
+        panel_muestraV.setLayout(panel_muestraVLayout);
+        panel_muestraVLayout.setHorizontalGroup(
+            panel_muestraVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panel_muestraVLayout.setVerticalGroup(
+            panel_muestraVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 153, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout VerPLayout = new javax.swing.GroupLayout(VerP.getContentPane());
+        VerP.getContentPane().setLayout(VerPLayout);
+        VerPLayout.setHorizontalGroup(
+            VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VerPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panel_muestraV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerPLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(aceptarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VerPLayout.createSequentialGroup()
+                        .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(VerPLayout.createSequentialGroup()
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(categoriaV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(VerPLayout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tipoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(VerPLayout.createSequentialGroup()
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(nombreV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 12, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        VerPLayout.setVerticalGroup(
+            VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VerPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombreV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tipoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(categoriaV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(panel_muestraV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(aceptarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        VerP.getAccessibleContext().setAccessibleParent(OpcionesP);
+
+        EditarCategoriaP.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        EditarCategoriaP.setModal(true);
+        EditarCategoriaP.setPreferredSize(new java.awt.Dimension(248, 118));
+        EditarCategoriaP.setResizable(false);
+        EditarCategoriaP.setSize(new java.awt.Dimension(248, 118));
+
+        jLabel12.setText("Editando para: ");
+        jLabel12.setPreferredSize(new java.awt.Dimension(90, 25));
+
+        objetoEC.setText("://:");
+        objetoEC.setPreferredSize(new java.awt.Dimension(120, 25));
+
+        categoriasEC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "viajes", "fotos", "nominas", "default" }));
+        categoriasEC.setPreferredSize(new java.awt.Dimension(150, 35));
+
+        aceptarEC.setText("OK");
+        aceptarEC.setPreferredSize(new java.awt.Dimension(60, 60));
+        aceptarEC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarECActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout EditarCategoriaPLayout = new javax.swing.GroupLayout(EditarCategoriaP.getContentPane());
+        EditarCategoriaP.getContentPane().setLayout(EditarCategoriaPLayout);
+        EditarCategoriaPLayout.setHorizontalGroup(
+            EditarCategoriaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EditarCategoriaPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(EditarCategoriaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(EditarCategoriaPLayout.createSequentialGroup()
+                        .addComponent(categoriasEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(aceptarEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(EditarCategoriaPLayout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(objetoEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        EditarCategoriaPLayout.setVerticalGroup(
+            EditarCategoriaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EditarCategoriaPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(EditarCategoriaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(categoriasEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(aceptarEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(EditarCategoriaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(objetoEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        EditarCategoriaP.getAccessibleContext().setAccessibleParent(OpcionesP);
+
+        EliminarP.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        EliminarP.setModal(true);
+        EliminarP.setPreferredSize(new java.awt.Dimension(233, 139));
+        EliminarP.setResizable(false);
+        EliminarP.setSize(new java.awt.Dimension(233, 139));
+
+        aceptarV1.setText("✔");
+        aceptarV1.setPreferredSize(new java.awt.Dimension(60, 60));
+        aceptarV1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarV1ActionPerformed(evt);
+            }
+        });
+
+        cancelarV.setText("✖");
+        cancelarV.setPreferredSize(new java.awt.Dimension(60, 60));
+        cancelarV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarVActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setPreferredSize(new java.awt.Dimension(90, 20));
+
+        jLabel13.setText("¿Desea eliminar:");
+        jLabel13.setPreferredSize(new java.awt.Dimension(99, 20));
+
+        jLabel14.setText("?");
+        jLabel14.setPreferredSize(new java.awt.Dimension(20, 20));
+
+        javax.swing.GroupLayout EliminarPLayout = new javax.swing.GroupLayout(EliminarP.getContentPane());
+        EliminarP.getContentPane().setLayout(EliminarPLayout);
+        EliminarPLayout.setHorizontalGroup(
+            EliminarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EliminarPLayout.createSequentialGroup()
+                .addGroup(EliminarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(EliminarPLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(EliminarPLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(aceptarV1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cancelarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        EliminarPLayout.setVerticalGroup(
+            EliminarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(EliminarPLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(EliminarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGroup(EliminarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(aceptarV1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        EliminarP.getAccessibleContext().setAccessibleParent(OpcionesP);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -712,9 +1067,10 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_aceptarBActionPerformed
 
     private void opcionesBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcionesBActionPerformed
-        Opciones.getObj().setTitle("Opciones");
-        Opciones.getObj().setVisible(true);
-        Opciones.getObj().setLocationRelativeTo(null);
+        OpcionesP.setModal(true);
+        OpcionesP.setLocationRelativeTo(null);
+        OpcionesP.setTitle("Opciones");
+        OpcionesP.setVisible(true);
     }//GEN-LAST:event_opcionesBActionPerformed
 
     private void tipoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoBActionPerformed
@@ -781,10 +1137,14 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarNCActionPerformed
 
     private void confirmarNCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarNCActionPerformed
+        if ("".equals(nuevaNC.getText())) {
+            JOptionPane.showMessageDialog(NuevaCategoriaP, "Error, no se ha podido realizar la operación.","ERROR", JOptionPane.ERROR_MESSAGE);
+        }
         NuevaCategoriaP.dispose();
     }//GEN-LAST:event_confirmarNCActionPerformed
 
     private void aceptarSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarSActionPerformed
+        JOptionPane.showMessageDialog(AgregarP, "Error, no se ha podido realizar la operación.","ERROR", JOptionPane.ERROR_MESSAGE);
         AgregarP.dispose();
     }//GEN-LAST:event_aceptarSActionPerformed
 
@@ -810,15 +1170,73 @@ public class Inicio extends javax.swing.JFrame {
         AgregarP.dispose();
     }//GEN-LAST:event_cancelarSActionPerformed
 
+    private void verOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verOActionPerformed
+        VerP.setModal(true);
+        VerP.setLocationRelativeTo(null);
+        VerP.setTitle("Ver");
+        VerP.setVisible(true);
+    }//GEN-LAST:event_verOActionPerformed
+
+    private void editarOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarOActionPerformed
+        EditarCategoriaP.setModal(true);
+        EditarCategoriaP.setLocationRelativeTo(null);
+        EditarCategoriaP.setTitle("Editar Categoria");
+        EditarCategoriaP.setVisible(true);
+    }//GEN-LAST:event_editarOActionPerformed
+
+    private void descargarOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descargarOActionPerformed
+
+    }//GEN-LAST:event_descargarOActionPerformed
+
+    private void eliminarOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarOActionPerformed
+        EliminarP.setModal(true);
+        EliminarP.setLocationRelativeTo(null);
+        EliminarP.setTitle("Eliminar");
+        EliminarP.setVisible(true);
+    }//GEN-LAST:event_eliminarOActionPerformed
+
+    private void aceptarOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarOActionPerformed
+        OpcionesP.dispose();
+    }//GEN-LAST:event_aceptarOActionPerformed
+
+    private void aceptarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarVActionPerformed
+        VerP.dispose();
+    }//GEN-LAST:event_aceptarVActionPerformed
+
+    private void aceptarECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarECActionPerformed
+        EditarCategoriaP.dispose();
+    }//GEN-LAST:event_aceptarECActionPerformed
+
+    private void aceptarV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarV1ActionPerformed
+        EliminarP.dispose();
+        OpcionesP.dispose();
+        BuscarP.dispose();
+    }//GEN-LAST:event_aceptarV1ActionPerformed
+
+    private void cancelarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarVActionPerformed
+        EliminarP.dispose();
+        OpcionesP.dispose();
+        BuscarP.dispose();
+    }//GEN-LAST:event_cancelarVActionPerformed
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog AgregarP;
     private javax.swing.JDialog BuscarP;
     private javax.swing.JDialog CambiarColorP;
+    private javax.swing.JDialog EditarCategoriaP;
+    private javax.swing.JDialog EliminarP;
     private javax.swing.JDialog NuevaCategoriaP;
+    private javax.swing.JDialog OpcionesP;
     private javax.swing.JLabel TxtOpciones;
+    private javax.swing.JDialog VerP;
     private javax.swing.JButton aceptarB;
     private javax.swing.JButton aceptarCC;
+    private javax.swing.JButton aceptarEC;
+    private javax.swing.JButton aceptarO;
     private javax.swing.JButton aceptarS;
+    private javax.swing.JButton aceptarV;
+    private javax.swing.JButton aceptarV1;
     private javax.swing.JButton agregarI;
     private javax.swing.JRadioButton amarilloCC;
     private javax.swing.JRadioButton azulCC;
@@ -830,36 +1248,56 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton cancelarI;
     private javax.swing.JButton cancelarNC;
     private javax.swing.JButton cancelarS;
+    private javax.swing.JButton cancelarV;
     private javax.swing.JRadioButton categoriaB;
     private javax.swing.JComboBox<String> categoriaS;
+    private javax.swing.JLabel categoriaV;
+    private javax.swing.JComboBox<String> categoriasEC;
     private javax.swing.JButton confirmarNC;
     private javax.swing.JRadioButton defaultCC;
+    private javax.swing.JButton descargarO;
+    private javax.swing.JButton editarO;
+    private javax.swing.JButton eliminarO;
     private javax.swing.JComboBox<String> existentesNC;
     private javax.swing.JButton explorarS;
     private javax.swing.JPanel inicio_mostrarI;
     private javax.swing.JTextField input_nombreB;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JComboBox<String> lista_categoriasB;
     private javax.swing.JComboBox<String> lista_tiposB;
     private javax.swing.JPanel mostrarCC;
     private javax.swing.JRadioButton nombreB;
     private javax.swing.JTextField nombreS;
+    private javax.swing.JLabel nombreV;
     private javax.swing.JTextField nuevaNC;
     private javax.swing.JButton nueva_categoriaI;
+    private javax.swing.JLabel objetoEC;
+    private javax.swing.JLabel objetoO;
     private javax.swing.JButton opcionesB;
+    private javax.swing.JPanel panel_muestraV;
     private javax.swing.ButtonGroup seleccionBuscarP;
     private javax.swing.ButtonGroup seleccionColorCC;
     private javax.swing.JTextField seleccioneS;
     private javax.swing.JTable tablaB;
     private javax.swing.JRadioButton tipoB;
     private javax.swing.JComboBox<String> tipoS;
+    private javax.swing.JLabel tipoV;
     private javax.swing.JRadioButton todoB;
+    private javax.swing.JButton verO;
     // End of variables declaration//GEN-END:variables
 }
