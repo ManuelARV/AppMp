@@ -69,7 +69,6 @@ public class Inicio extends javax.swing.JFrame {
         AgregarP = new javax.swing.JDialog();
         jLabel4 = new javax.swing.JLabel();
         aceptarS = new javax.swing.JButton();
-        tipoS = new javax.swing.JTextField();
         direccionS = new javax.swing.JTextField();
         explorarS = new javax.swing.JButton();
         categoriaS = new javax.swing.JComboBox<>();
@@ -78,6 +77,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         nombreS = new javax.swing.JTextField();
+        tipoS = new javax.swing.JComboBox<>();
         OpcionesP = new javax.swing.JDialog();
         verO = new javax.swing.JButton();
         editarO = new javax.swing.JButton();
@@ -532,13 +532,6 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        tipoS.setPreferredSize(new java.awt.Dimension(200, 30));
-        tipoS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tipoSActionPerformed(evt);
-            }
-        });
-
         direccionS.setText("C:/");
         direccionS.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         direccionS.setPreferredSize(new java.awt.Dimension(200, 30));
@@ -584,6 +577,9 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        tipoS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Imagen", "Documento", "Video y Audio", "Otros" }));
+        tipoS.setPreferredSize(new java.awt.Dimension(200, 28));
+
         javax.swing.GroupLayout AgregarPLayout = new javax.swing.GroupLayout(AgregarP.getContentPane());
         AgregarP.getContentPane().setLayout(AgregarPLayout);
         AgregarPLayout.setHorizontalGroup(
@@ -598,7 +594,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(AgregarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(nombreS, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                            .addComponent(tipoS, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)))
+                            .addComponent(tipoS, 0, 1, Short.MAX_VALUE)))
                     .addGroup(AgregarPLayout.createSequentialGroup()
                         .addComponent(aceptarS, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
@@ -609,7 +605,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(AgregarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(direccionS, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                            .addComponent(categoriaS, 0, 189, Short.MAX_VALUE))))
+                            .addComponent(categoriaS, 0, 1, Short.MAX_VALUE))))
                 .addGap(18, 18, 18)
                 .addGroup(AgregarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(explorarS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1078,7 +1074,6 @@ public class Inicio extends javax.swing.JFrame {
         AgregarP.setTitle("Agregar");
         AgregarP.setVisible(true);
         direccionS.setText("C:/");
-        tipoS.setText(null);
         nombreS.setText(null);
         
     }//GEN-LAST:event_agregarIActionPerformed
@@ -1231,57 +1226,50 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_confirmarNCActionPerformed
 
     private void aceptarSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarSActionPerformed
-        if (("".equals(tipoS.getText())) && ("C:/".equals(direccionS.getText()))) {
+        if (("C:/".equals(direccionS.getText()))) {
             JOptionPane.showMessageDialog(AgregarP, "Error, no se ha podido realizar la operación.","ERROR", JOptionPane.ERROR_MESSAGE);
             AgregarP.dispose();
         }
         else {         
             File nuevoFichero = new File(direccionS.getText(), nombreS.getText());
-            Archivo nuevoArchivo = new Archivo(categoriaS.getSelectedItem().toString(), tipoS.getText(), nombreS.getText(), nuevoFichero);
+            Archivo nuevoArchivo = new Archivo(categoriaS.getSelectedItem().toString(), tipoS.getSelectedItem().toString(), nombreS.getText(), nuevoFichero);
             archivos.add(nuevoArchivo);
             JOptionPane.showMessageDialog(AgregarP, "Se ha agregado correctamente el archivo","CORRECTO", JOptionPane.INFORMATION_MESSAGE);
             AgregarP.dispose();
         }
     }//GEN-LAST:event_aceptarSActionPerformed
 
-    private void tipoSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tipoSActionPerformed
-
     private void explorarSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_explorarSActionPerformed
         JFileChooser selectorDirectorios = new JFileChooser();
         selectorDirectorios.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         selectorDirectorios.setDialogTitle("Seleccionador de Archivos");
         selectorDirectorios.setAcceptAllFileFilterUsed(false);
-        
-        /*
+            
         FileNameExtensionFilter filtroImagen = new FileNameExtensionFilter("JPG, PNG & GIF","jpg","png","gif");
         FileNameExtensionFilter filtroDoc = new FileNameExtensionFilter("TXT, DOC & PDF","txt","doc","pdf");
         FileNameExtensionFilter filtroVideo = new FileNameExtensionFilter("AVI, MP4 & MP3","avi","mp4","mp3");
-        
-        selectorDirectorios.setFileFilter(filtroImagen);
-        selectorDirectorios.setFileFilter(filtroDoc);
-        selectorDirectorios.setFileFilter(filtroVideo);
-        */
-      
+ 
+        if (null != tipoS.getSelectedItem().toString()) switch (tipoS.getSelectedItem().toString()) {
+            case "Imagen":
+                selectorDirectorios.setFileFilter(filtroImagen);
+                break;
+            case "Documento":
+                selectorDirectorios.setFileFilter(filtroDoc);
+                break;
+            case "Video y Audio":
+                selectorDirectorios.setFileFilter(filtroVideo);
+                break;
+            case "Otros":
+                selectorDirectorios.setFileFilter(null);
+                break;
+            default:
+                break;
+        }
+            
         if (selectorDirectorios.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             File faux = selectorDirectorios.getSelectedFile();
             direccionS.setText(faux.getPath());
-            nombreS.setText(faux.getName());
-               
-            int i = 0;
-            char punto = '.';
-            
-            while (i<faux.getName().length()) {
-                if (punto == faux.getName().charAt(i)) {
-                    String tipoExtraido = faux.getName().substring(i+1);
-                    tipoS.setText(tipoExtraido);
-                    i++;
-                }
-                else {
-                    i++;
-                }
-            } 
+            nombreS.setText(faux.getName());  
         }
     }//GEN-LAST:event_explorarSActionPerformed
 
@@ -1439,7 +1427,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.ButtonGroup seleccionColorCC;
     private javax.swing.JTable tablaB;
     private javax.swing.JRadioButton tipoB;
-    private javax.swing.JTextField tipoS;
+    private javax.swing.JComboBox<String> tipoS;
     private javax.swing.JLabel tipoV;
     private javax.swing.JRadioButton todoB;
     private javax.swing.JButton verO;
