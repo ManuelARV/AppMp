@@ -6,7 +6,6 @@
 package gestorarchivos;
 
 import java.io.*;
-import java.util.ArrayList;
 
 /**
  *
@@ -60,5 +59,12 @@ public class Archivo {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+    
+//método toString
 
+    @Override
+    public String toString() {
+        return "Archivo{" + "categoria=" + categoria + ", tipo=" + tipo + ", nombre=" + nombre + '}';
+    }
+    
 }
