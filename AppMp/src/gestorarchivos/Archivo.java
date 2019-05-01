@@ -64,7 +64,7 @@ public class Archivo {
 
     @Override
     public String toString() {
-        return "Archivo{" + "categoria=" + categoria + ", tipo=" + tipo + ", nombre=" + nombre + '}';
+        return "||   " + "Tipo:   " + categoria + "   ||" + "   Categoria:   " + tipo + "   ||" + "   Nombre:   " + nombre + "   ||";
     }
     
 }

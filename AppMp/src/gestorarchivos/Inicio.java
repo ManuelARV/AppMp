@@ -6,23 +6,15 @@
 package gestorarchivos;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JDialog;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -133,11 +125,11 @@ public class Inicio extends javax.swing.JFrame {
 
         BuscarP.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         BuscarP.setModal(true);
-        BuscarP.setPreferredSize(new java.awt.Dimension(645, 430));
+        BuscarP.setPreferredSize(new java.awt.Dimension(665, 430));
         BuscarP.setResizable(false);
-        BuscarP.setSize(new java.awt.Dimension(645, 430));
+        BuscarP.setSize(new java.awt.Dimension(665, 430));
 
-        input_nombreB.setPreferredSize(new java.awt.Dimension(120, 30));
+        input_nombreB.setPreferredSize(new java.awt.Dimension(120, 35));
         input_nombreB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 input_nombreBActionPerformed(evt);
@@ -241,34 +233,28 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(BuscarPLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2)
                     .addGroup(BuscarPLayout.createSequentialGroup()
                         .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lista_tiposB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tipoB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 50, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lista_categoriasB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(categoriaB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 50, Short.MAX_VALUE)
-                        .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(categoriaB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lista_categoriasB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(input_nombreB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nombreB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane2))
+                            .addComponent(nombreB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(50, 50, 50)
                 .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscarPLayout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(aceptarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(aceptarB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(BuscarPLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(buscarB, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
-                                .addComponent(todoB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(BuscarPLayout.createSequentialGroup()
-                            .addGap(50, 50, 50)
-                            .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(TxtOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(opcionesB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buscarB, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                            .addComponent(todoB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(TxtOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(opcionesB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         BuscarPLayout.setVerticalGroup(
@@ -277,16 +263,16 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tipoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(categoriaB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(todoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombreB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombreB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(categoriaB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lista_tiposB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buscarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lista_tiposB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(lista_categoriasB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(input_nombreB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(input_nombreB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buscarB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BuscarPLayout.createSequentialGroup()
                         .addGap(82, 82, 82)
@@ -1119,14 +1105,13 @@ public class Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-//INICIO
     private void buscarIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarIActionPerformed
+        mostrarArchivosB.setText(null);
+        todoBActionPerformed(evt);
         BuscarP.setModal(true);
         BuscarP.setLocationRelativeTo(null);
         BuscarP.setTitle("Buscar");
         BuscarP.setVisible(true);
-        mostrarArchivosB.setText(null);
     }//GEN-LAST:event_buscarIActionPerformed
 
     private void agregarIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarIActionPerformed
@@ -1157,7 +1142,6 @@ public class Inicio extends javax.swing.JFrame {
         NuevaCategoriaP.setVisible(true);
     }//GEN-LAST:event_nueva_categoriaIActionPerformed
 
-    
     private void buscarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBActionPerformed
         if (tipoB.isSelected()) {
             mostrarArchivosB.setText(null);
@@ -1242,15 +1226,15 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_opcionesBActionPerformed
 
     private void tipoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoBActionPerformed
+        lista_tiposB.setVisible(true);        
         lista_categoriasB.setVisible(false);
         input_nombreB.setVisible(false);
-        lista_tiposB.setVisible(true);
     }//GEN-LAST:event_tipoBActionPerformed
 
     private void categoriaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaBActionPerformed
+        lista_categoriasB.setVisible(true);
         lista_tiposB.setVisible(false);
         input_nombreB.setVisible(false);
-        lista_categoriasB.setVisible(true);
     }//GEN-LAST:event_categoriaBActionPerformed
 
     private void lista_tiposBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lista_tiposBActionPerformed
@@ -1258,13 +1242,11 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_lista_tiposBActionPerformed
 
     private void todoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_todoBActionPerformed
-        lista_tiposB.setVisible(true);
-        lista_categoriasB.setVisible(true);
-        input_nombreB.setVisible(true);
+        lista_tiposB.setVisible(false);
+        input_nombreB.setVisible(false);
+        lista_categoriasB.setVisible(false);
     }//GEN-LAST:event_todoBActionPerformed
 
-    
-//CAMBIAR COLOR
     private void cancelarCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarCCActionPerformed
         CambiarColorP.dispose();
     }//GEN-LAST:event_cancelarCCActionPerformed
@@ -1330,14 +1312,14 @@ public class Inicio extends javax.swing.JFrame {
         mostrarCC.setBackground(Color.white);
     }//GEN-LAST:event_blancoCCActionPerformed
 
-//BUSCAR
     private void input_nombreBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_input_nombreBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_input_nombreBActionPerformed
 
     private void nombreBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreBActionPerformed
+        categoriaBActionPerformed(evt);
         lista_tiposB.setVisible(false);
-        lista_categoriasB.setVisible(false);     
+        lista_categoriasB.setVisible(false);
         input_nombreB.setVisible(true);
     }//GEN-LAST:event_nombreBActionPerformed
 
