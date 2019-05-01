@@ -6,11 +6,12 @@
 package gestorarchivos;
 
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -21,6 +22,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Inicio extends javax.swing.JFrame {
     
     ArrayList<Archivo> archivos = new ArrayList<>();
+    Archivo archivoSeleccionado;
     
     public Inicio() {
         initComponents();  
@@ -92,19 +94,19 @@ public class Inicio extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         aceptarV = new javax.swing.JButton();
-        panel_muestraV = new javax.swing.JPanel();
         nombreV = new javax.swing.JTextField();
         tipoV = new javax.swing.JTextField();
         categoriaV = new javax.swing.JTextField();
+        panelVisualizar = new javax.swing.JLabel();
         EditarCategoriaP = new javax.swing.JDialog();
         jLabel12 = new javax.swing.JLabel();
-        objetoEC = new javax.swing.JLabel();
         categoriasEC = new javax.swing.JComboBox<>();
         aceptarEC = new javax.swing.JButton();
+        objetoEC = new javax.swing.JTextField();
         EliminarP = new javax.swing.JDialog();
         aceptarV1 = new javax.swing.JButton();
         cancelarV = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        objetoEliminar = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         SeleccionarArchivoP = new javax.swing.JDialog();
@@ -721,8 +723,9 @@ public class Inicio extends javax.swing.JFrame {
 
         VerP.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         VerP.setModal(true);
-        VerP.setPreferredSize(new java.awt.Dimension(278, 385));
-        VerP.setSize(new java.awt.Dimension(278, 385));
+        VerP.setPreferredSize(new java.awt.Dimension(1000, 750));
+        VerP.setResizable(false);
+        VerP.setSize(new java.awt.Dimension(1000, 750));
 
         jLabel9.setText("Nombre: ");
         jLabel9.setPreferredSize(new java.awt.Dimension(120, 40));
@@ -740,19 +743,6 @@ public class Inicio extends javax.swing.JFrame {
                 aceptarVActionPerformed(evt);
             }
         });
-
-        panel_muestraV.setPreferredSize(new java.awt.Dimension(258, 153));
-
-        javax.swing.GroupLayout panel_muestraVLayout = new javax.swing.GroupLayout(panel_muestraV);
-        panel_muestraV.setLayout(panel_muestraVLayout);
-        panel_muestraVLayout.setHorizontalGroup(
-            panel_muestraVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panel_muestraVLayout.setVerticalGroup(
-            panel_muestraVLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 153, Short.MAX_VALUE)
-        );
 
         nombreV.setEditable(false);
         nombreV.setPreferredSize(new java.awt.Dimension(176, 40));
@@ -773,28 +763,25 @@ public class Inicio extends javax.swing.JFrame {
         VerPLayout.setHorizontalGroup(
             VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VerPLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panel_muestraV, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerPLayout.createSequentialGroup()
+                .addContainerGap(235, Short.MAX_VALUE)
+                .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panelVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(VerPLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(aceptarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(VerPLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, VerPLayout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nombreV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(VerPLayout.createSequentialGroup()
+                        .addComponent(nombreV, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, VerPLayout.createSequentialGroup()
                         .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(VerPLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(categoriaV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(VerPLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tipoV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap())
+                            .addComponent(categoriaV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tipoV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
         VerPLayout.setVerticalGroup(
             VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -811,9 +798,9 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(categoriaV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(panel_muestraV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(panelVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(aceptarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -822,15 +809,12 @@ public class Inicio extends javax.swing.JFrame {
 
         EditarCategoriaP.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         EditarCategoriaP.setModal(true);
-        EditarCategoriaP.setPreferredSize(new java.awt.Dimension(260, 118));
+        EditarCategoriaP.setPreferredSize(new java.awt.Dimension(260, 155));
         EditarCategoriaP.setResizable(false);
-        EditarCategoriaP.setSize(new java.awt.Dimension(260, 118));
+        EditarCategoriaP.setSize(new java.awt.Dimension(260, 155));
 
         jLabel12.setText("Editando para: ");
         jLabel12.setPreferredSize(new java.awt.Dimension(90, 25));
-
-        objetoEC.setText("://:");
-        objetoEC.setPreferredSize(new java.awt.Dimension(120, 25));
 
         categoriasEC.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
         categoriasEC.setPreferredSize(new java.awt.Dimension(150, 35));
@@ -848,6 +832,14 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
+        objetoEC.setEditable(false);
+        objetoEC.setPreferredSize(new java.awt.Dimension(90, 25));
+        objetoEC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                objetoECActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout EditarCategoriaPLayout = new javax.swing.GroupLayout(EditarCategoriaP.getContentPane());
         EditarCategoriaP.getContentPane().setLayout(EditarCategoriaPLayout);
         EditarCategoriaPLayout.setHorizontalGroup(
@@ -858,12 +850,13 @@ public class Inicio extends javax.swing.JFrame {
                     .addGroup(EditarCategoriaPLayout.createSequentialGroup()
                         .addComponent(categoriasEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(aceptarEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(aceptarEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 12, Short.MAX_VALUE))
                     .addGroup(EditarCategoriaPLayout.createSequentialGroup()
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(objetoEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(objetoEC, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         EditarCategoriaPLayout.setVerticalGroup(
             EditarCategoriaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -872,11 +865,11 @@ public class Inicio extends javax.swing.JFrame {
                 .addGroup(EditarCategoriaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(categoriasEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(aceptarEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(EditarCategoriaPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(objetoEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(objetoEC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         EditarCategoriaP.getAccessibleContext().setAccessibleParent(OpcionesP);
@@ -903,7 +896,13 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setPreferredSize(new java.awt.Dimension(90, 20));
+        objetoEliminar.setEditable(false);
+        objetoEliminar.setPreferredSize(new java.awt.Dimension(90, 20));
+        objetoEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                objetoEliminarActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("¿Desea eliminar:");
         jLabel13.setPreferredSize(new java.awt.Dimension(99, 20));
@@ -921,7 +920,7 @@ public class Inicio extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(objetoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(EliminarPLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(aceptarV1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -936,7 +935,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(EliminarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(objetoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(EliminarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1136,7 +1135,7 @@ public class Inicio extends javax.swing.JFrame {
         if (tipoB.isSelected()) {
             mostrarArchivosB.setText(null);
             if (archivos.isEmpty()) {
-                mostrarArchivosB.setText("Todavía no se han agregado arachivos al sistema.");
+                mostrarArchivosB.setText("Todavía no se han agregado archivos al sistema.");
             }
             else {
                 for (Archivo archivoT : archivos) {
@@ -1153,7 +1152,7 @@ public class Inicio extends javax.swing.JFrame {
         else if (categoriaB.isSelected()) {
             mostrarArchivosB.setText(null);
             if (archivos.isEmpty()) {
-                mostrarArchivosB.setText("Todavía no se han agregado arachivos al sistema.");
+                mostrarArchivosB.setText("Todavía no se han agregado archivos al sistema.");
             }
             else {               
                 for (Archivo archivoC : archivos) {
@@ -1170,7 +1169,7 @@ public class Inicio extends javax.swing.JFrame {
         else if (nombreB.isSelected()) {
             mostrarArchivosB.setText(null);
             if (archivos.isEmpty()) {
-                mostrarArchivosB.setText("Todavía no se han agregado arachivos al sistema.");
+                mostrarArchivosB.setText("Todavía no se han agregado archivos al sistema.");
             }
             else {
                 for (Archivo archivoN : archivos) {
@@ -1188,7 +1187,7 @@ public class Inicio extends javax.swing.JFrame {
         else {
             mostrarArchivosB.setText(null);
             if (archivos.isEmpty()) {
-                mostrarArchivosB.setText("Todavía no se han agregado arachivos al sistema.");
+                mostrarArchivosB.setText("Todavía no se han agregado archivos al sistema.");
             }
             else {
                 for (Archivo archivoTodo : archivos) {
@@ -1324,7 +1323,7 @@ public class Inicio extends javax.swing.JFrame {
             categoriaS.addItem(nuevaNC.getText());
             lista_categoriasB.addItem(nuevaNC.getText());
             categoriasEC.addItem(nuevaNC.getText());
-            JOptionPane.showMessageDialog(NuevaCategoriaP, "Se ha creado correctamente la nueva categoría.","CORRECTO", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(NuevaCategoriaP, "Se ha creado la nueva categoría correctamente.","CORRECTO", JOptionPane.INFORMATION_MESSAGE);
         }
         nuevaNC.setText(null);
         NuevaCategoriaP.dispose();
@@ -1340,7 +1339,7 @@ public class Inicio extends javax.swing.JFrame {
             Archivo nuevoArchivo = new Archivo(categoriaS.getSelectedItem().toString(), tipoS.getSelectedItem().toString(), nombreS.getText(), nuevoFichero);
             archivos.add(nuevoArchivo);
             archivoSelecSA.addItem(nuevoArchivo.getNombre()); 
-            JOptionPane.showMessageDialog(AgregarP, "Se ha agregado correctamente el archivo","CORRECTO", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(AgregarP, "Se ha agregado el archivo correctamente","CORRECTO", JOptionPane.INFORMATION_MESSAGE);
             AgregarP.dispose();
         }
     }//GEN-LAST:event_aceptarSActionPerformed
@@ -1374,7 +1373,7 @@ public class Inicio extends javax.swing.JFrame {
             
         if (selectorDirectorios.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             File faux = selectorDirectorios.getSelectedFile();
-            direccionS.setText(faux.getPath());
+            direccionS.setText(faux.getAbsolutePath());
             nombreS.setText(faux.getName());  
         }
     }//GEN-LAST:event_explorarSActionPerformed
@@ -1384,10 +1383,20 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarSActionPerformed
 
     private void verOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verOActionPerformed
-        VerP.setModal(true);
-        VerP.setLocationRelativeTo(null);
-        VerP.setTitle("Ver");
-        VerP.setVisible(true);
+        if ("Imagen".equals(archivoSeleccionado.getTipo())) {    
+            VerP.setModal(true);
+            VerP.setLocationRelativeTo(null);
+            VerP.setTitle("Ver");
+            VerP.setVisible(true);
+            
+            Image img = new ImageIcon(archivoSeleccionado.getFichero().getAbsolutePath()).getImage();
+            ImageIcon imagen = new ImageIcon(img.getScaledInstance(78, 124, Image.SCALE_SMOOTH));
+            panelVisualizar.setIcon(imagen);                 
+            panelVisualizar.setSize(imagen.getIconWidth(), imagen.getIconHeight());             
+        }
+        else {
+            JOptionPane.showMessageDialog(AgregarP, "Error, no se puede visualizar el archivo porque no es una imagen.","ERROR", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_verOActionPerformed
 
     private void editarOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarOActionPerformed
@@ -1414,19 +1423,24 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_aceptarVActionPerformed
 
     private void aceptarECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarECActionPerformed
+        archivoSeleccionado.setCategoria(categoriasEC.getSelectedItem().toString());
         EditarCategoriaP.dispose();
     }//GEN-LAST:event_aceptarECActionPerformed
 
     private void aceptarV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarV1ActionPerformed
+        archivos.remove(archivoSeleccionado);
+        JOptionPane.showMessageDialog(AgregarP, "Se ha eliminado el archivo correctamente.","CORRECTO", JOptionPane.INFORMATION_MESSAGE);
         EliminarP.dispose();
         OpcionesP.dispose();
         BuscarP.dispose();
+        SeleccionarArchivoP.dispose();
     }//GEN-LAST:event_aceptarV1ActionPerformed
 
     private void cancelarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarVActionPerformed
         EliminarP.dispose();
         OpcionesP.dispose();
         BuscarP.dispose();
+        SeleccionarArchivoP.dispose();
     }//GEN-LAST:event_cancelarVActionPerformed
 
     private void direccionSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionSActionPerformed
@@ -1467,22 +1481,21 @@ public class Inicio extends javax.swing.JFrame {
     private void archivoSelecSAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_archivoSelecSAActionPerformed
         //algoritmo que encuentra el archivo seleccionado para efectuar las opciones sobre él
         for (Archivo archivo : archivos) {
-            int i = archivos.indexOf(archivo);
-            if (archivo.getNombre().equals(archivoSelecSA.getItemAt(i))) {
-                objetoO.setText(archivo.getNombre());
+            if (archivo.getNombre().equals(archivoSelecSA.getSelectedItem().toString())) {
+                archivoSeleccionado = archivo;
+                objetoO.setText(archivoSeleccionado.getNombre());
                 
                 //Visualizar el objeto
-                nombreV.setText(archivo.getNombre());
-                tipoV.setText(archivo.getTipo());
-                categoriaV.setText(archivo.getCategoria());
+                nombreV.setText(archivoSeleccionado.getNombre());
+                tipoV.setText(archivoSeleccionado.getTipo());
+                categoriaV.setText(archivoSeleccionado.getCategoria());
+
+                //Editar la categoría
+                objetoEC.setText(archivoSeleccionado.getNombre());
                 
-                if ("Imagen".equals(archivo.getTipo())) {
-                    ImageIcon imagen = new ImageIcon(archivo.getFichero().getPath());
-                    JLabel panelImagen = new JLabel(imagen);
-                    panelImagen.setVisible(true);
-                    panelImagen.setSize(imagen.getIconWidth(), imagen.getIconHeight());
-                    panelImagen.setLocation(null);
-                }
+                //Eliminar el archivo
+                objetoEliminar.setText(archivoSeleccionado.getNombre());
+                
             }       
         }   
     }//GEN-LAST:event_archivoSelecSAActionPerformed
@@ -1490,6 +1503,14 @@ public class Inicio extends javax.swing.JFrame {
     private void categoriaVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaVActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_categoriaVActionPerformed
+
+    private void objetoECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_objetoECActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_objetoECActionPerformed
+
+    private void objetoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_objetoEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_objetoEliminarActionPerformed
     
         
 
@@ -1554,7 +1575,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JComboBox<String> lista_categoriasB;
     private javax.swing.JComboBox<String> lista_tiposB;
     private javax.swing.JTextArea mostrarArchivosB;
@@ -1564,10 +1584,11 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTextField nombreV;
     private javax.swing.JTextField nuevaNC;
     private javax.swing.JButton nueva_categoriaI;
-    private javax.swing.JLabel objetoEC;
+    private javax.swing.JTextField objetoEC;
+    private javax.swing.JTextField objetoEliminar;
     private javax.swing.JTextField objetoO;
     private javax.swing.JButton opcionesB;
-    private javax.swing.JPanel panel_muestraV;
+    private javax.swing.JLabel panelVisualizar;
     private javax.swing.ButtonGroup seleccionBuscarP;
     private javax.swing.ButtonGroup seleccionColorCC;
     private javax.swing.JRadioButton tipoB;
