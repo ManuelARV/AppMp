@@ -723,9 +723,9 @@ public class Inicio extends javax.swing.JFrame {
 
         VerP.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         VerP.setModal(true);
-        VerP.setPreferredSize(new java.awt.Dimension(1000, 750));
+        VerP.setPreferredSize(new java.awt.Dimension(400, 480));
         VerP.setResizable(false);
-        VerP.setSize(new java.awt.Dimension(1000, 750));
+        VerP.setSize(new java.awt.Dimension(400, 480));
 
         aceptarV.setText("Aceptar");
         aceptarV.setPreferredSize(new java.awt.Dimension(80, 30));
@@ -750,23 +750,22 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(VerPLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(VerPLayout.createSequentialGroup()
                         .addComponent(visualizarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(171, 171, 171)
-                        .addComponent(aceptarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(panelVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                        .addComponent(aceptarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         VerPLayout.setVerticalGroup(
             VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VerPLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(panelVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aceptarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(visualizarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panelVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(aceptarV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(visualizarV, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -1379,6 +1378,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_aceptarOActionPerformed
 
     private void aceptarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarVActionPerformed
+        panelVisualizar.setIcon(null);
         VerP.dispose();
     }//GEN-LAST:event_aceptarVActionPerformed
 
@@ -1389,6 +1389,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void aceptarV1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarV1ActionPerformed
         archivos.remove(archivoSeleccionado);
+        archivoSelecSA.removeItem(archivoSeleccionado.getNombre());
         JOptionPane.showMessageDialog(AgregarP, "Se ha eliminado el archivo correctamente.","CORRECTO", JOptionPane.INFORMATION_MESSAGE);
         EliminarP.dispose();
         OpcionesP.dispose();
@@ -1464,8 +1465,8 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_objetoEliminarActionPerformed
 
     private void visualizarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizarVActionPerformed
-        panelVisualizar.setVisible(true);
-        ImageIcon imagen = new ImageIcon(archivoSeleccionado.getFichero().getAbsolutePath());
+        ImageIcon imagen = new ImageIcon(archivoSeleccionado.getFichero().getParent());
+        imagen = new ImageIcon(imagen.getImage().getScaledInstance(panelVisualizar.getWidth(), panelVisualizar.getHeight(), BufferedImage.SCALE_SMOOTH));
         panelVisualizar.setIcon(imagen);
     }//GEN-LAST:event_visualizarVActionPerformed
     
