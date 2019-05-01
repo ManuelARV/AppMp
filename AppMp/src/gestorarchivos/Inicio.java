@@ -10,8 +10,14 @@ import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
@@ -113,6 +119,11 @@ public class Inicio extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         archivoSelecSA = new javax.swing.JComboBox<>();
         aceptarSA = new javax.swing.JButton();
+        VerPDoc = new javax.swing.JDialog();
+        visualizarDoc = new javax.swing.JButton();
+        aceptarDoc = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        panelDoc = new javax.swing.JTextArea();
         buscarI = new javax.swing.JButton();
         agregarI = new javax.swing.JButton();
         cambiar_colorI = new javax.swing.JButton();
@@ -960,6 +971,58 @@ public class Inicio extends javax.swing.JFrame {
 
         SeleccionarArchivoP.getAccessibleContext().setAccessibleParent(BuscarP);
 
+        VerPDoc.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        VerPDoc.setModal(true);
+        VerPDoc.setResizable(false);
+        VerPDoc.setSize(new java.awt.Dimension(400, 300));
+
+        visualizarDoc.setText("Visualizar");
+        visualizarDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visualizarDocActionPerformed(evt);
+            }
+        });
+
+        aceptarDoc.setText("Aceptar");
+        aceptarDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarDocActionPerformed(evt);
+            }
+        });
+
+        panelDoc.setEditable(false);
+        panelDoc.setColumns(20);
+        panelDoc.setRows(5);
+        jScrollPane1.setViewportView(panelDoc);
+
+        javax.swing.GroupLayout VerPDocLayout = new javax.swing.GroupLayout(VerPDoc.getContentPane());
+        VerPDoc.getContentPane().setLayout(VerPDocLayout);
+        VerPDocLayout.setHorizontalGroup(
+            VerPDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VerPDocLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(VerPDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VerPDocLayout.createSequentialGroup()
+                        .addComponent(visualizarDoc)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(aceptarDoc))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        VerPDocLayout.setVerticalGroup(
+            VerPDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerPDocLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(VerPDocLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(visualizarDoc)
+                    .addComponent(aceptarDoc))
+                .addContainerGap())
+        );
+
+        VerPDoc.getAccessibleContext().setAccessibleParent(OpcionesP);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
@@ -1214,6 +1277,7 @@ public class Inicio extends javax.swing.JFrame {
             AgregarP.getContentPane().setBackground(Color.cyan);
             OpcionesP.getContentPane().setBackground(Color.cyan);
             VerP.getContentPane().setBackground(Color.cyan);
+            VerPDoc.getContentPane().setBackground(Color.cyan);
             this.getContentPane().setBackground(Color.cyan);
             EditarCategoriaP.getContentPane().setBackground(Color.cyan);
             EliminarP.getContentPane().setBackground(Color.cyan);
@@ -1225,6 +1289,7 @@ public class Inicio extends javax.swing.JFrame {
             AgregarP.getContentPane().setBackground(Color.yellow);
             OpcionesP.getContentPane().setBackground(Color.yellow);
             VerP.getContentPane().setBackground(Color.yellow);
+            VerPDoc.getContentPane().setBackground(Color.yellow);
             this.getContentPane().setBackground(Color.yellow);
             EditarCategoriaP.getContentPane().setBackground(Color.yellow);
             EliminarP.getContentPane().setBackground(Color.yellow);
@@ -1236,6 +1301,7 @@ public class Inicio extends javax.swing.JFrame {
             AgregarP.getContentPane().setBackground(Color.white);
             OpcionesP.getContentPane().setBackground(Color.white);
             VerP.getContentPane().setBackground(Color.white);
+            VerPDoc.getContentPane().setBackground(Color.white);
             this.getContentPane().setBackground(Color.white);
             EditarCategoriaP.getContentPane().setBackground(Color.white);
             EliminarP.getContentPane().setBackground(Color.white);
@@ -1247,6 +1313,7 @@ public class Inicio extends javax.swing.JFrame {
             AgregarP.getContentPane().setBackground(null);
             OpcionesP.getContentPane().setBackground(null);
             VerP.getContentPane().setBackground(null);
+            VerPDoc.getContentPane().setBackground(null);
             this.getContentPane().setBackground(null);
             EditarCategoriaP.getContentPane().setBackground(null);
             EliminarP.getContentPane().setBackground(null);
@@ -1353,8 +1420,14 @@ public class Inicio extends javax.swing.JFrame {
             VerP.setTitle("Visualizador");
             VerP.setVisible(true);
         }
+        else if ("Documento".equals(archivoSeleccionado.getTipo())) {
+            VerPDoc.setModal(true);
+            VerPDoc.setLocationRelativeTo(null);
+            VerPDoc.setTitle("Visualizador");
+            VerPDoc.setVisible(true);
+        }
         else {
-            JOptionPane.showMessageDialog(AgregarP, "Error, no se puede visualizar el archivo porque no es una imagen.","ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(AgregarP, "Error, no se puede visualizar el archivo porque no es una imagen o un txt.","ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_verOActionPerformed
 
@@ -1469,6 +1542,25 @@ public class Inicio extends javax.swing.JFrame {
         imagen = new ImageIcon(imagen.getImage().getScaledInstance(panelVisualizar.getWidth(), panelVisualizar.getHeight(), BufferedImage.SCALE_SMOOTH));
         panelVisualizar.setIcon(imagen);
     }//GEN-LAST:event_visualizarVActionPerformed
+
+    private void visualizarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizarDocActionPerformed
+        try {
+            BufferedReader leer = new BufferedReader(new FileReader(archivoSeleccionado.getFichero().getParent()));
+            String linea = leer.readLine();
+            
+            while (linea != null) {
+                panelDoc.append(linea + "\n");
+                linea = leer.readLine();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Inicio.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          
+    }//GEN-LAST:event_visualizarDocActionPerformed
+
+    private void aceptarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarDocActionPerformed
+        VerPDoc.dispose();
+    }//GEN-LAST:event_aceptarDocActionPerformed
     
         
 
@@ -1483,8 +1575,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JDialog SeleccionarArchivoP;
     private javax.swing.JLabel TxtOpciones;
     private javax.swing.JDialog VerP;
+    private javax.swing.JDialog VerPDoc;
     private javax.swing.JButton aceptarB;
     private javax.swing.JButton aceptarCC;
+    private javax.swing.JButton aceptarDoc;
     private javax.swing.JButton aceptarEC;
     private javax.swing.JButton aceptarO;
     private javax.swing.JButton aceptarS;
@@ -1528,6 +1622,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<String> lista_categoriasB;
     private javax.swing.JComboBox<String> lista_tiposB;
@@ -1541,6 +1636,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTextField objetoEliminar;
     private javax.swing.JTextField objetoO;
     private javax.swing.JButton opcionesB;
+    private javax.swing.JTextArea panelDoc;
     private javax.swing.JLabel panelVisualizar;
     private javax.swing.ButtonGroup seleccionBuscarP;
     private javax.swing.ButtonGroup seleccionColorCC;
@@ -1548,6 +1644,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> tipoS;
     private javax.swing.JRadioButton todoB;
     private javax.swing.JButton verO;
+    private javax.swing.JButton visualizarDoc;
     private javax.swing.JButton visualizarV;
     // End of variables declaration//GEN-END:variables
 }
