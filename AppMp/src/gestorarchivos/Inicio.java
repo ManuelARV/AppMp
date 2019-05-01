@@ -6,12 +6,17 @@
 package gestorarchivos;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -90,14 +95,9 @@ public class Inicio extends javax.swing.JFrame {
         aceptarO = new javax.swing.JButton();
         objetoO = new javax.swing.JTextField();
         VerP = new javax.swing.JDialog();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         aceptarV = new javax.swing.JButton();
-        nombreV = new javax.swing.JTextField();
-        tipoV = new javax.swing.JTextField();
-        categoriaV = new javax.swing.JTextField();
         panelVisualizar = new javax.swing.JLabel();
+        visualizarV = new javax.swing.JButton();
         EditarCategoriaP = new javax.swing.JDialog();
         jLabel12 = new javax.swing.JLabel();
         categoriasEC = new javax.swing.JComboBox<>();
@@ -727,15 +727,6 @@ public class Inicio extends javax.swing.JFrame {
         VerP.setResizable(false);
         VerP.setSize(new java.awt.Dimension(1000, 750));
 
-        jLabel9.setText("Nombre: ");
-        jLabel9.setPreferredSize(new java.awt.Dimension(120, 40));
-
-        jLabel10.setText("Tipo: ");
-        jLabel10.setPreferredSize(new java.awt.Dimension(120, 40));
-
-        jLabel11.setText("Categoría: ");
-        jLabel11.setPreferredSize(new java.awt.Dimension(120, 40));
-
         aceptarV.setText("Aceptar");
         aceptarV.setPreferredSize(new java.awt.Dimension(80, 30));
         aceptarV.addActionListener(new java.awt.event.ActionListener() {
@@ -744,17 +735,11 @@ public class Inicio extends javax.swing.JFrame {
             }
         });
 
-        nombreV.setEditable(false);
-        nombreV.setPreferredSize(new java.awt.Dimension(176, 40));
-
-        tipoV.setEditable(false);
-        tipoV.setPreferredSize(new java.awt.Dimension(176, 40));
-
-        categoriaV.setEditable(false);
-        categoriaV.setPreferredSize(new java.awt.Dimension(176, 40));
-        categoriaV.addActionListener(new java.awt.event.ActionListener() {
+        visualizarV.setText("Visualizar");
+        visualizarV.setPreferredSize(new java.awt.Dimension(120, 35));
+        visualizarV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                categoriaVActionPerformed(evt);
+                visualizarVActionPerformed(evt);
             }
         });
 
@@ -763,45 +748,25 @@ public class Inicio extends javax.swing.JFrame {
         VerPLayout.setHorizontalGroup(
             VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VerPLayout.createSequentialGroup()
-                .addContainerGap(235, Short.MAX_VALUE)
-                .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panelVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(VerPLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(aceptarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, VerPLayout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nombreV, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, VerPLayout.createSequentialGroup()
-                        .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(categoriaV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(tipoV, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(241, Short.MAX_VALUE))
+                        .addComponent(visualizarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(171, 171, 171)
+                        .addComponent(aceptarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(panelVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         VerPLayout.setVerticalGroup(
             VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VerPLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombreV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addComponent(panelVisualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tipoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(VerPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(categoriaV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(panelVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(aceptarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(aceptarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(visualizarV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -1386,13 +1351,8 @@ public class Inicio extends javax.swing.JFrame {
         if ("Imagen".equals(archivoSeleccionado.getTipo())) {    
             VerP.setModal(true);
             VerP.setLocationRelativeTo(null);
-            VerP.setTitle("Ver");
+            VerP.setTitle("Visualizador");
             VerP.setVisible(true);
-            
-            Image img = new ImageIcon(archivoSeleccionado.getFichero().getAbsolutePath()).getImage();
-            ImageIcon imagen = new ImageIcon(img.getScaledInstance(78, 124, Image.SCALE_SMOOTH));
-            panelVisualizar.setIcon(imagen);                 
-            panelVisualizar.setSize(imagen.getIconWidth(), imagen.getIconHeight());             
         }
         else {
             JOptionPane.showMessageDialog(AgregarP, "Error, no se puede visualizar el archivo porque no es una imagen.","ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1484,11 +1444,6 @@ public class Inicio extends javax.swing.JFrame {
             if (archivo.getNombre().equals(archivoSelecSA.getSelectedItem().toString())) {
                 archivoSeleccionado = archivo;
                 objetoO.setText(archivoSeleccionado.getNombre());
-                
-                //Visualizar el objeto
-                nombreV.setText(archivoSeleccionado.getNombre());
-                tipoV.setText(archivoSeleccionado.getTipo());
-                categoriaV.setText(archivoSeleccionado.getCategoria());
 
                 //Editar la categoría
                 objetoEC.setText(archivoSeleccionado.getNombre());
@@ -1500,10 +1455,6 @@ public class Inicio extends javax.swing.JFrame {
         }   
     }//GEN-LAST:event_archivoSelecSAActionPerformed
 
-    private void categoriaVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoriaVActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_categoriaVActionPerformed
-
     private void objetoECActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_objetoECActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_objetoECActionPerformed
@@ -1511,6 +1462,12 @@ public class Inicio extends javax.swing.JFrame {
     private void objetoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_objetoEliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_objetoEliminarActionPerformed
+
+    private void visualizarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizarVActionPerformed
+        panelVisualizar.setVisible(true);
+        ImageIcon imagen = new ImageIcon(archivoSeleccionado.getFichero().getAbsolutePath());
+        panelVisualizar.setIcon(imagen);
+    }//GEN-LAST:event_visualizarVActionPerformed
     
         
 
@@ -1548,7 +1505,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton cancelarV;
     private javax.swing.JRadioButton categoriaB;
     private javax.swing.JComboBox<String> categoriaS;
-    private javax.swing.JTextField categoriaV;
     private javax.swing.JComboBox<String> categoriasEC;
     private javax.swing.JButton confirmarNC;
     private javax.swing.JRadioButton defaultCC;
@@ -1560,8 +1516,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JPanel inicio_mostrarI;
     private javax.swing.JTextField input_nombreB;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1573,7 +1527,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JComboBox<String> lista_categoriasB;
     private javax.swing.JComboBox<String> lista_tiposB;
@@ -1581,7 +1534,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JPanel mostrarCC;
     private javax.swing.JRadioButton nombreB;
     private javax.swing.JTextField nombreS;
-    private javax.swing.JTextField nombreV;
     private javax.swing.JTextField nuevaNC;
     private javax.swing.JButton nueva_categoriaI;
     private javax.swing.JTextField objetoEC;
@@ -1593,8 +1545,8 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.ButtonGroup seleccionColorCC;
     private javax.swing.JRadioButton tipoB;
     private javax.swing.JComboBox<String> tipoS;
-    private javax.swing.JTextField tipoV;
     private javax.swing.JRadioButton todoB;
     private javax.swing.JButton verO;
+    private javax.swing.JButton visualizarV;
     // End of variables declaration//GEN-END:variables
 }
