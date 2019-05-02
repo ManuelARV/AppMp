@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package gestorarchivos;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -17,16 +17,29 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.BorderLayout;
+import java.io.File;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 
 /**
  *
  * @author Marina
  */
+
 public class Inicio extends javax.swing.JFrame {
     
     ArrayList<Archivo> archivos = new ArrayList<>();
     Archivo archivoSeleccionado;
-    
+    private final JFXPanel panelJFX = new JFXPanel();
+    MediaPlayer reproductorGlobal;
+
     public Inicio() {
         initComponents();  
         
@@ -35,6 +48,7 @@ public class Inicio extends javax.swing.JFrame {
             lista_tiposB.setVisible(true);
             lista_categoriasB.setVisible(true); 
         }
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -116,6 +130,14 @@ public class Inicio extends javax.swing.JFrame {
         aceptarDoc = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         panelDoc = new javax.swing.JTextArea();
+        VerPVyA = new javax.swing.JDialog();
+        visualizadorVideo = new javax.swing.JPanel();
+        visualizarVideo = new javax.swing.JButton();
+        playV = new javax.swing.JButton();
+        pauseV = new javax.swing.JButton();
+        stopV = new javax.swing.JButton();
+        volverVideo = new javax.swing.JButton();
+        muteV = new javax.swing.JButton();
         buscarI = new javax.swing.JButton();
         agregarI = new javax.swing.JButton();
         cambiar_colorI = new javax.swing.JButton();
@@ -261,11 +283,12 @@ public class Inicio extends javax.swing.JFrame {
             BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BuscarPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tipoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(todoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nombreB, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(categoriaB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(tipoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(todoB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(categoriaB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BuscarPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1009,6 +1032,113 @@ public class Inicio extends javax.swing.JFrame {
 
         VerPDoc.getAccessibleContext().setAccessibleParent(OpcionesP);
 
+        VerPVyA.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        VerPVyA.setModal(true);
+        VerPVyA.setPreferredSize(new java.awt.Dimension(740, 500));
+        VerPVyA.setResizable(false);
+        VerPVyA.setSize(new java.awt.Dimension(740, 500));
+
+        visualizadorVideo.setPreferredSize(new java.awt.Dimension(720, 408));
+
+        javax.swing.GroupLayout visualizadorVideoLayout = new javax.swing.GroupLayout(visualizadorVideo);
+        visualizadorVideo.setLayout(visualizadorVideoLayout);
+        visualizadorVideoLayout.setHorizontalGroup(
+            visualizadorVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        visualizadorVideoLayout.setVerticalGroup(
+            visualizadorVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 408, Short.MAX_VALUE)
+        );
+
+        visualizarVideo.setText("Visualizar");
+        visualizarVideo.setPreferredSize(new java.awt.Dimension(90, 35));
+        visualizarVideo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visualizarVideoActionPerformed(evt);
+            }
+        });
+
+        playV.setText("Play");
+        playV.setPreferredSize(new java.awt.Dimension(70, 30));
+        playV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playVActionPerformed(evt);
+            }
+        });
+
+        pauseV.setText("Pause");
+        pauseV.setPreferredSize(new java.awt.Dimension(70, 30));
+        pauseV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pauseVActionPerformed(evt);
+            }
+        });
+
+        stopV.setText("Stop");
+        stopV.setPreferredSize(new java.awt.Dimension(70, 30));
+        stopV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stopVActionPerformed(evt);
+            }
+        });
+
+        volverVideo.setText("Volver");
+        volverVideo.setPreferredSize(new java.awt.Dimension(90, 35));
+        volverVideo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverVideoActionPerformed(evt);
+            }
+        });
+
+        muteV.setText("Mute");
+        muteV.setPreferredSize(new java.awt.Dimension(70, 30));
+        muteV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                muteVActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout VerPVyALayout = new javax.swing.GroupLayout(VerPVyA.getContentPane());
+        VerPVyA.getContentPane().setLayout(VerPVyALayout);
+        VerPVyALayout.setHorizontalGroup(
+            VerPVyALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VerPVyALayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(VerPVyALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(visualizadorVideo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(VerPVyALayout.createSequentialGroup()
+                        .addComponent(visualizarVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(97, 97, 97)
+                        .addComponent(playV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(pauseV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(stopV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                        .addComponent(muteV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(volverVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        VerPVyALayout.setVerticalGroup(
+            VerPVyALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VerPVyALayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(visualizadorVideo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(VerPVyALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(visualizarVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(playV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pauseV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stopV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(volverVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(muteV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        VerPVyA.getAccessibleContext().setAccessibleParent(OpcionesP);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
@@ -1104,7 +1234,7 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ 
     private void buscarIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarIActionPerformed
         mostrarArchivosB.setText(null);
         todoBActionPerformed(evt);
@@ -1260,6 +1390,7 @@ public class Inicio extends javax.swing.JFrame {
             OpcionesP.getContentPane().setBackground(Color.cyan);
             VerP.getContentPane().setBackground(Color.cyan);
             VerPDoc.getContentPane().setBackground(Color.cyan);
+            VerPVyA.getContentPane().setBackground(Color.cyan);
             this.getContentPane().setBackground(Color.cyan);
             EditarCategoriaP.getContentPane().setBackground(Color.cyan);
             EliminarP.getContentPane().setBackground(Color.cyan);
@@ -1272,6 +1403,7 @@ public class Inicio extends javax.swing.JFrame {
             OpcionesP.getContentPane().setBackground(Color.yellow);
             VerP.getContentPane().setBackground(Color.yellow);
             VerPDoc.getContentPane().setBackground(Color.yellow);
+            VerPVyA.getContentPane().setBackground(Color.yellow);
             this.getContentPane().setBackground(Color.yellow);
             EditarCategoriaP.getContentPane().setBackground(Color.yellow);
             EliminarP.getContentPane().setBackground(Color.yellow);
@@ -1284,6 +1416,7 @@ public class Inicio extends javax.swing.JFrame {
             OpcionesP.getContentPane().setBackground(Color.white);
             VerP.getContentPane().setBackground(Color.white);
             VerPDoc.getContentPane().setBackground(Color.white);
+            VerPVyA.getContentPane().setBackground(Color.white);
             this.getContentPane().setBackground(Color.white);
             EditarCategoriaP.getContentPane().setBackground(Color.white);
             EliminarP.getContentPane().setBackground(Color.white);
@@ -1296,6 +1429,7 @@ public class Inicio extends javax.swing.JFrame {
             OpcionesP.getContentPane().setBackground(null);
             VerP.getContentPane().setBackground(null);
             VerPDoc.getContentPane().setBackground(null);
+            VerPVyA.getContentPane().setBackground(null);
             this.getContentPane().setBackground(null);
             EditarCategoriaP.getContentPane().setBackground(null);
             EliminarP.getContentPane().setBackground(null);
@@ -1408,8 +1542,14 @@ public class Inicio extends javax.swing.JFrame {
             VerPDoc.setTitle("Visualizador");
             VerPDoc.setVisible(true);
         }
+        else if ("Video y Audio".equals(archivoSeleccionado.getTipo())) {
+            VerPVyA.setModal(true);
+            VerPVyA.setLocationRelativeTo(null);
+            VerPVyA.setTitle("Visualizador");
+            VerPVyA.setVisible(true);
+        }
         else {
-            JOptionPane.showMessageDialog(AgregarP, "Error, no se puede visualizar el archivo porque no es una imagen o un txt.","ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(AgregarP, "Error, no se puede visualizar archivos de tipo <Otros>.","ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_verOActionPerformed
 
@@ -1543,6 +1683,95 @@ public class Inicio extends javax.swing.JFrame {
     private void aceptarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarDocActionPerformed
         VerPDoc.dispose();
     }//GEN-LAST:event_aceptarDocActionPerformed
+
+    private void visualizarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visualizarVideoActionPerformed
+        try {
+            visualizadorVideo.setLayout(new BorderLayout());
+            visualizadorVideo.add(panelJFX,BorderLayout.CENTER);
+
+            String dir = archivoSeleccionado.getFichero().toURI().toString();
+
+            int contador = 0;
+            for (int i=dir.length()-1; ('/' != (dir.charAt(i))); i--) {
+                contador += 1;
+            }
+
+            int direccionCorregida = dir.length() - contador-1;
+            String nuevo_dir = dir.substring(0, direccionCorregida);
+
+            Media media = new Media(nuevo_dir);
+            reproductorGlobal = new MediaPlayer(media);
+
+            //reproductorGlobal = new MediaPlayer(media);
+
+            MediaView vista = new MediaView(reproductorGlobal);
+            DoubleProperty vistaW = vista.fitWidthProperty();
+            DoubleProperty vistaH = vista.fitHeightProperty();
+            vistaW.bind(Bindings.selectDouble(vista.sceneProperty(), "width"));
+            vistaH.bind(Bindings.selectDouble(vista.sceneProperty(), "height"));
+            vista.setPreserveRatio(true);
+
+            panelJFX.setScene(new Scene(new Group(vista), getSize().getWidth(), getSize().getHeight()));
+
+            reproductorGlobal.setVolume(0.7);
+            reproductorGlobal.setCycleCount(MediaPlayer.INDEFINITE);
+            reproductorGlobal.play();
+            visualizarVideo.setEnabled(false);   
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(AgregarP, "Error, no se pueden visualizar videos mas de 1 vez.","ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_visualizarVideoActionPerformed
+
+    private void playVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playVActionPerformed
+        if (visualizarVideo.isEnabled() == false) {
+            if (reproductorGlobal.isMute()) {
+                reproductorGlobal.play();
+                reproductorGlobal.setMute(false);
+            }
+            else {
+                reproductorGlobal.stop();
+                reproductorGlobal.play();
+            }
+        }
+    }//GEN-LAST:event_playVActionPerformed
+
+    private void pauseVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseVActionPerformed
+        if (visualizarVideo.isEnabled() == false) {
+            reproductorGlobal.pause();
+            reproductorGlobal.setMute(true);
+        }
+    }//GEN-LAST:event_pauseVActionPerformed
+
+    private void stopVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopVActionPerformed
+        if (visualizarVideo.isEnabled() == false) {
+            reproductorGlobal.stop();
+        }
+    }//GEN-LAST:event_stopVActionPerformed
+
+    private void volverVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverVideoActionPerformed
+        if (visualizarVideo.isEnabled() == false) {
+            visualizarVideo.setEnabled(true);
+            reproductorGlobal.stop();
+            reproductorGlobal.dispose();
+            reproductorGlobal = null;
+            VerPVyA.dispose();
+        }
+        else {
+            VerPVyA.dispose();
+        }
+    }//GEN-LAST:event_volverVideoActionPerformed
+
+    private void muteVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muteVActionPerformed
+        if (visualizarVideo.isEnabled() == false) {
+            if (reproductorGlobal.isMute()) {
+                reproductorGlobal.setMute(false);
+            }
+            else {
+                reproductorGlobal.setMute(true);
+            }  
+        }
+    }//GEN-LAST:event_muteVActionPerformed
     
         
 
@@ -1558,6 +1787,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel TxtOpciones;
     private javax.swing.JDialog VerP;
     private javax.swing.JDialog VerPDoc;
+    private javax.swing.JDialog VerPVyA;
     private javax.swing.JButton aceptarB;
     private javax.swing.JButton aceptarCC;
     private javax.swing.JButton aceptarDoc;
@@ -1610,6 +1840,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> lista_tiposB;
     private javax.swing.JTextArea mostrarArchivosB;
     private javax.swing.JPanel mostrarCC;
+    private javax.swing.JButton muteV;
     private javax.swing.JRadioButton nombreB;
     private javax.swing.JTextField nombreS;
     private javax.swing.JTextField nuevaNC;
@@ -1620,13 +1851,19 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton opcionesB;
     private javax.swing.JTextArea panelDoc;
     private javax.swing.JLabel panelVisualizar;
+    private javax.swing.JButton pauseV;
+    private javax.swing.JButton playV;
     private javax.swing.ButtonGroup seleccionBuscarP;
     private javax.swing.ButtonGroup seleccionColorCC;
+    private javax.swing.JButton stopV;
     private javax.swing.JRadioButton tipoB;
     private javax.swing.JComboBox<String> tipoS;
     private javax.swing.JRadioButton todoB;
     private javax.swing.JButton verO;
+    private javax.swing.JPanel visualizadorVideo;
     private javax.swing.JButton visualizarDoc;
     private javax.swing.JButton visualizarV;
+    private javax.swing.JButton visualizarVideo;
+    private javax.swing.JButton volverVideo;
     // End of variables declaration//GEN-END:variables
 }
